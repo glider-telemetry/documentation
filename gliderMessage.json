@@ -1,0 +1,44 @@
+{
+  "trackerID": "123456ABC",
+  "fixTime": 0,
+  "position": {
+    "latlng": {
+      "lat": 0,
+      "lon": 0
+    },
+    "gpsAccuracy": 0,
+    "press": 0,
+    "gAlt": 0,
+    "heading": 0,
+    "gSpeed": 0,
+    "aSpeed": 0,
+    "climbRate": 0,
+    "teClimbRate": 0,
+    "wind": {
+      "dir": 0,
+      "speed": 0
+    },
+    "temperature": 0,
+    "enl": 0
+  },
+  "comms": {
+    "RSSI": "",
+    "tower": ""
+  },
+  "identity": {
+    "imei": "",
+    "pilot1ID": "",
+    "pilot2ID": ""
+  },
+  "device": {
+    "hwModel": "",
+    "hwVersion": "",
+    "fwVersion": "",
+    "commsModule": "",
+    "protocolVersion": "",
+    "voltage": 0,
+    "temperature": 0,
+    "privacy": 0
+  },
+  "devData": ""
+}
