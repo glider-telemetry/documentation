@@ -9,6 +9,7 @@
       "lat": -32.1234,         //in decimal degree
       "lon": 152.1234          //in decimal degree
     },
+    "navStat": "G3",                //NF,G2,G3 Other modes not supported, See UBLOX doco for codes
     "hAccuracy": 6.7,               // in m, Hacc value from UBX,00
     "press": 1013.25,               // in mbar
     "gAlt": 123.12,                 // gps altitude in m
