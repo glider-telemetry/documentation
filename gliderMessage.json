@@ -13,6 +13,7 @@
     "hAccuracy": 6.7,               // in m, Hacc value from UBX,00
     "press": 1013.25,               // in mbar
     "gAlt": 123.12,                 // gps altitude in m
+    "pAlt": 123.22,                 // press altitude in m
     "heading": 179,                 // in degree
     "gSpeed": 21.123,               // Ground speed in m/s converted from COG UBX,00
     "aSpeed": 25.12,                // Air speed from vario
