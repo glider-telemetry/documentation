@@ -1,10 +1,10 @@
+// This the json format as sent by the tracker
 // Assumed that the data is sourced on the tracker using UBX,00 sentence
 
 {
   "trackerID": "123456ABC",
   "imei": "EA45556600123C",
   "fixTime": 1558271605,
-  "insertTime": 1558281605,
   "position": {
     "latlng": {
       "lat": -32.1234,         //in decimal degree
