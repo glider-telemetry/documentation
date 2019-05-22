@@ -21,8 +21,9 @@ The fixes are removed from the table once the IGC files are created
 
 devices
 The devices table contains information about the tracker and its setting
-The {tracker} section gets the data from the identification message received from the tracker
-The {settings} section gets the data from the web UI
+Part for the data comes from the identification message received from the tracker
+Part for the data comes from the web UI
 
 pilots
 Contains information about the pilots
+This data comes from the web UI
