@@ -1,0 +1,17 @@
+{
+  "trackerID": "123456ABC",
+  "tracker": {
+    "imei": "",
+    "pilot1ID": "",
+    "pilot2ID": "",
+    "hwModel": "",
+    "commsModule": "",
+    "gpsReceiver": "",
+    "mopSensor": "",
+    "hwVersion": "",
+    "fwVersion": "",
+    "protocolVersion": "",
+    "gpsDatum": "",
+    "devData": ""
+  }
+}
