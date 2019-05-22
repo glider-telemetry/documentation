@@ -1,3 +1,6 @@
+
+JSON structure of records
+
 {
   "trackerID": "123456ABC",
   "creationDate": 0,
@@ -14,13 +17,13 @@
     "fwVersion": "",
     "protocolVersion": "",
     "gpsDatum": "",
+    "devData": ""
   },
   "settings": { 
     "privacy": 0,
     "gliderType": "",
     "gliderId": "",
     "compID": "",
-    "compClass": "",
+    "compClass": ""
   },
-  "devData": ""
 }
