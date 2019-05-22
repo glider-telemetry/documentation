@@ -2,6 +2,7 @@
 
 {
   "trackerID": "123456ABC",
+  "imei": "EA45556600123C",
   "fixTime": 1558271605,
   "insertTime": 1558281605,
   "position": {
@@ -31,17 +32,7 @@
     "RSSI": "",
     "tower": ""
   },
-  "identity": {
-    "imei": "",
-    "pilot1ID": "",
-    "pilot2ID": ""
-  },
   "device": {
-    "hwModel": "",
-    "hwVersion": "",
-    "fwVersion": "",
-    "commsModule": "",
-    "protocolVersion": "",
     "voltage": 0,
     "temperature": 0,
     "privacy": 0
