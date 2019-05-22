@@ -1,0 +1,24 @@
+{
+  "tracker": {
+    "trackerID": "123456ABC",
+    "imei": "",
+    "pilot1ID": "",
+    "pilot2ID": "",
+    "hwModel": "",
+    "commsModule": "",
+    "gpsReceiver": "",
+    "mopSensor": "",
+    "hwVersion": "",
+    "fwVersion": "",
+    "protocolVersion": "",
+    "gpsDatum": "",
+  },
+  "settings": { 
+    "privacy": 0,
+    "gliderType": "",
+    "gliderId": "",
+    "compID": "",
+    "compClass": "",
+   },
+   "devData": ""
+}
