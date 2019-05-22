@@ -1,0 +1,26 @@
+Information about the various messages sent by the tracker and the tables where they go
+
+MESSAGES
+
+identification 
+This JSON message is only sent once when the tracker starts or after it has been re-configured.
+It contains data like tracker model, PilotID, etc. Typically data that does not change during the flight
+This message is recorded in the devices table
+
+fix
+This JSON message is only sent for every fix
+It contains all the data that changes during the flight like position, comms status, temperature etc.
+This message is recorded in the fixes table
+
+
+TABLES
+
+fixes
+The fixes table contains every fix sent by the tracker
+The fixes are removed from the table once the IGC files are created
+
+devices
+The devices table contains information about the tracker and its setting
+The {tracker} section gets the data from the identification message received from the tracker
+The {settings} section gets the data from the web UI
+
