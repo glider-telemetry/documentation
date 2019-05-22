@@ -1,6 +1,8 @@
 {
+  "trackerID": "123456ABC",
+  "creationDate": 0,
+  "lastUpdate": 0,
   "tracker": {
-    "trackerID": "123456ABC",
     "imei": "",
     "pilot1ID": "",
     "pilot2ID": "",
@@ -19,6 +21,6 @@
     "gliderId": "",
     "compID": "",
     "compClass": "",
-   },
-   "devData": ""
+  },
+  "devData": ""
 }
