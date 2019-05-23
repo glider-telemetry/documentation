@@ -11,6 +11,7 @@ JSON structure of records
   "hwModel": "",
   "commsModule": "",
   "gpsReceiver": "",
+  "pressAltSensor": "",
   "mopSensor": "",
   "hwVersion": "",
   "fwVersion": "",
@@ -19,7 +20,7 @@ JSON structure of records
   "devData": "",
   "privacy": 0,
   "gliderType": "",
-  "gliderId": "",
+  "gliderID": "",
   "compID": "",
   "compClass": ""
 }
