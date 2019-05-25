@@ -1,1 +1,52 @@
 JSON structure of records
+
+{
+  "pilotId": "54d0483c-6e71-4b43-9e15-2f98e0d13dba",  //AWS Cognito user ID format
+  "regoDate": "1234567890",
+  "updateDate": "1234567833",
+  "firstName": "Joe",
+  "middleName": "Alfred",
+  "familyName": "Bloggs",
+  "dob": "1900-01-31",                                //ISO86001 format
+  "gender": "Male",
+  "country": "AU",
+  "email": "xxx@yyy.com",
+  "phoneNumber": "+61400400400",
+  "club": "Lake Keepit Soaring Club",
+  "emergencyContactName": "Jane Bloggs",
+  "emergencyContactNumber": "+610400400401",
+}
+  
+  
+  Table structure
+  resources:
+  Resources:
+    PilotsTable:
+      Type: "AWS::DynamoDB::Table"
+      Properties:
+        BillingMode: "PAY_PER_REQUEST"
+        AttributeDefinitions:
+        - AttributeName: "pilotID"
+          AttributeType: "S"
+        - AttributeName: "country"
+          AttributeType: "S"
+        - AttributeName: "club"
+          AttributeType: "S"
+        
+        KeySchema:
+        - AttributeName: "pilotID"
+          KeyType: "HASH"
+        
+        GlobalSecondaryIndexes:
+        - IndexName: "country-index"
+          KeySchema:
+            - AttributeName: "country"
+              KeyType: "HASH"
+          Projection:
+            ProjectionType: "KEYS_ONLY"
+        - IndexName: "club-index"
+          KeySchema:
+            - AttributeName: "club"
+              KeyType: "HASH"
+          Projection:
+            ProjectionType: "KEYS_ONLY"
