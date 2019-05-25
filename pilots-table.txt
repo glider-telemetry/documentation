@@ -1,7 +1,7 @@
 JSON structure of records
 
 {
-  "pilotId": "54d0483c-6e71-4b43-9e15-2f98e0d13dba",  //AWS Cognito user ID format
+  "pilotID": "54d0483c-6e71-4b43-9e15-2f98e0d13dba",  //AWS Cognito user ID format
   "regoDate": "1234567890",
   "updateDate": "1234567833",
   "firstName": "Joe",
