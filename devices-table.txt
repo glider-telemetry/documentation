@@ -15,6 +15,8 @@ The trackers are not manually registered, when a tracker sends its first "device
 
 If the TrackertUI app needs to change something we will send a special formated answer on any fix or device message received and the tracker will update and send a new 'device' message.
 
+When the collector receives a 'device' message from the tracker, it will reply with the Pilots Names so they can be displayed on the tracker.
+
 The "privacy" field exists for the Device as well as Pilot, the generation and display of the IGC files or tracking will use the most restrictive value.
 
 JSON structure of device records
