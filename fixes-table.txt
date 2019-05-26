@@ -1,37 +1,15 @@
-resources:
-  Resources:
-    FizesTable:
-      Type: "AWS::DynamoDB::Table"
-      Properties:
-        BillingMode: "PAY_PER_REQUEST"
-        AttributeDefinitions:
-        - AttributeName: "trackerID"
-          AttributeType: "S"
-        - AttributeName: "fixTime"
-          AttributeType: "N"
-        - AttributeName: "insertTime"
-          AttributeType: "N"
+The fixes are sent by the trackers, typically every second.
 
-        KeySchema:
-        - AttributeName: "trackerID"
-          KeyType: "HASH"
-        - AttributeName: "fixTime"
-          KeyType: "RANGE"
+The privacy filed is the most restrictive of the Device and Tracker privacy setting. It is included in every fix so we do not need to query databases to see the setting every second.
 
-        GlobalSecondaryIndexes:
-        - IndexName: "insertTime-index"
-          KeySchema:
-            - AttributeName: "insertTime"
-              KeyType: "HASH"
-          Projection:
-            ProjectionType: "KEYS_ONLY"
+It is assumed the UBX protocl from the GPS will be used so we can get high quality native fields like hAccuracy, hSpeed, heading without calculating them. (The GPS has complex algorithms to do that depending on its config, plane, walk, car etc..)
 
+The messages from the trackers are JSON arrays of fixes in format [{..},{..}] a single message is wrapped with []
 
 JSON for the fixes table
 ========================
 {
-  "trackerID": "123456ABC",
-  "imei": "EA45556600123C",
+  "trackerID": "10-000000-000000-01",
   "fixTime": 1558271605,
   "insertTime": 1558281605,
   "position": {
@@ -68,3 +46,47 @@ JSON for the fixes table
   },
   "devData": ""
 }
+
+
+Message from tracker
+--------------------
+[{
+  "trackerID": "10-000000-000000-01",
+  "fixTime": 1558271605,
+  "position": {
+    "latlng": {
+      "lat": -32.1234,        
+      "lon": 152.1234         
+    },
+    "navStat": "G3",          
+    "hAccuracy": 6.7,         
+    "press": 1013.25,         
+    "gAlt": 123.12,           
+    "pAlt": 123.22,           
+    "heading": 179,           
+    "gSpeed": 21.123,         
+    "aSpeed": 25.12,          
+    "vVelocity": 1.45,        
+    "climbRate": 1.31,        
+    "teClimbRate": 1.23,      
+    "wind": {
+      "dir": 89.4,            
+      "speed": 2.234          
+    },
+    "oat": 26.4,              
+    "enl": 0                  
+  },
+  "comms": {
+    "RSSI": "",
+    "tower": ""
+  },
+  "device": {
+    "voltage": 4.34,
+    "temperature": 28.5,
+    "privacy": 0              
+  },
+  "devData": ""
+}, 
+{...}]
+
+
