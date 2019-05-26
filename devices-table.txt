@@ -1,8 +1,17 @@
+The trackers ID is the IMEI of the tracker, that is a unique ID of 15-16 digits in formats of:
+AA-BBBBBB-CCCCCC-D    (Hardware IMEI)
+AA-BBBBBB-CCCCCC-EE   (Software IMEI)
 
-JSON structure of records
+For testing without trackers, will use the range:
+10-000000-000000-01  => 10-000000-000000-99
 
+The trackers are not manually registered, when a tracker sends its first "device" message, it is automatically registerd.
+Every time a tracker sends a "device" message (typically at power On) the Devices table gets updated.
+The devices table is never updated in any other way.
+
+JSON structure of device records
 {
-  "trackerID": "123456ABC",
+  "trackerID": "10-000000-000000-01",
   "creationDate": 0,
   "lastUpdate": 0,
   "imei": "",
