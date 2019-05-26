@@ -51,3 +51,31 @@ JSON structure of device records
   "compID": "",
   "compClass": ""
 }
+
+
+Message from Tracker
+{
+  "trackerID": "10-000000-000000-01",       //IMEI
+  "pilot1ID": "",
+  "pilot2ID": "",
+  "hwModel": "",
+  "commsModule": "",
+  "gpsReceiver": "",
+  "pressAltSensor": "",
+  "mopSensor": "",
+  "hwVersion": "",
+  "fwVersion": "",
+  "protocolVersion": "",
+  "gpsDatum": "",
+  "devData": ""
+}
+
+Message from TraclerUI App
+{
+  "trackerID": "10-000000-000000-01",       //IMEI
+  "gliderType": "",
+  "gliderID": "",
+  "compID": "",
+  "compClass": ""
+}
+
