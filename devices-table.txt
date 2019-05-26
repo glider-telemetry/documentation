@@ -22,7 +22,7 @@ The "privacy" field exists for the Device as well as Pilot, the generation and d
 JSON structure of device records
 {
   "trackerID": "10-000000-000000-01",       //IMEI
-  "creationDate": 0,                        //First registration of a tracker
+//"creationDate": 0,                        //First registration of a tracker (disabled for now)
   "lastUpdate": 0,                          //time when the tracker sent the message, not when it is written
   "pilot1ID": "",
   "pilot2ID": "",
