@@ -20,7 +20,7 @@ JSON structure of records
   "club": "Lake Keepit Soaring Club",
   "emergencyContactName": "Jane Bloggs",
   "emergencyContactNumber": "+610400400401",
-  "privacy"
+  "privacy": "0"
 }
   
   
