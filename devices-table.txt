@@ -1,3 +1,9 @@
+The devices table contains a record for each change done to a tracker config, changes are done via the 'device' messages sent by the tracker.
+
+The Primarykey is the trackerID, the SortKey is the time when the change was done.
+
+The reason to keep the old configs is so we can generate the IGC file for the person who flew the flight. If we have only the last config and someone changes the SD card before the IGC file is generated, the IGC file will generat for the new pilot, not the one that flew.
+
 The trackers ID is the IMEI of the tracker, that is a unique ID of 15-16 digits in formats of:
 AA-BBBBBB-CCCCCC-D    (Hardware IMEI)
 AA-BBBBBB-CCCCCC-EE   (Software IMEI)
@@ -5,35 +11,17 @@ AA-BBBBBB-CCCCCC-EE   (Software IMEI)
 For testing without trackers, will use the range:
 10-000000-000000-01  => 10-000000-000000-99
 
-The trackers are not manually registered, when a tracker sends its first "device" message, it is automatically registerd.
-Every time a tracker sends a "device" message (typically at power On) the Devices table gets updated for all fields except.
+The trackers are not manually registered, when a tracker sends its first "device" message, it is automatically registerd. At that time it will have some empty attributes, like GliderType, GliderID, etc.. Those ID's are updated by the TrackerUI app, sent to the tracker and the tracker send them to the 'devices' table. We never update the devices table via any other mean than the 'device' message from the tracker.
 
-  "gliderType"
-  "gliderID"
-  "compID"
-  "compClass"
+If the TrackertUI app needs to change something we will send a special formated answer on any fix or device message received and the tracker will update and send a new 'device' message.
 
-The response from the collector to the tracker for the "device" message are the values for:
-
-  "gliderType"
-  "gliderID"
-  "compID"
-  "compClass"
-  "Pilot1Name"
-  "Pilot2Name"
-
-So the tracker can record them and if necessary display them.
-The configuration of the values above is done via the TrackerUI app, excelpt for "Pilot1Name" and "Pilot1Name" which come from the Pilots table based on the "pilot1ID" and "pilot2ID" that are read from teh SD cards and sent to the collector by the tracker via the 'device' message.
-
-If the Devices table is changed by the TrackerUI app we will send a special formated answer on any fix or device message received and the tracker will update and send a new 'device' message.
-
-Privacy setting is at pilot level not tracker.
+The "privacy" field exists for the Device as well as Pilot, the generation and display of the IGC files or tracking will use the most restrictive value.
 
 JSON structure of device records
 {
   "trackerID": "10-000000-000000-01",       //IMEI
   "creationDate": 0,                        //First registration of a tracker
-  "lastUpdate": 0,
+  "lastUpdate": 0,                          //time when the tracker sent the message, not when it is written
   "pilot1ID": "",
   "pilot2ID": "",
   "hwModel": "",
@@ -49,13 +37,15 @@ JSON structure of device records
   "gliderType": "",
   "gliderID": "",
   "compID": "",
-  "compClass": ""
+  "compClass": "",
+  "privacy": ""
 }
 
 
 Message from Tracker
 {
   "trackerID": "10-000000-000000-01",       //IMEI
+  "lastUpdate": 0, 
   "pilot1ID": "",
   "pilot2ID": "",
   "hwModel": "",
@@ -67,10 +57,16 @@ Message from Tracker
   "fwVersion": "",
   "protocolVersion": "",
   "gpsDatum": "",
-  "devData": ""
+  "devData": "",
+  "gliderType": "",
+  "gliderID": "",
+  "compID": "",
+  "compClass": "",
+  "privacy": ""
 }
 
-Message from TraclerUI App
+
+Message from TrackerUI app to Tracker
 {
   "trackerID": "10-000000-000000-01",       //IMEI
   "gliderType": "",
