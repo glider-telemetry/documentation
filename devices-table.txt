@@ -17,6 +17,11 @@ If the TrackertUI app needs to change something we will send a special formated 
 
 When the collector receives a 'device' message from the tracker, it will reply with the Pilots Names so they can be displayed on the tracker.
 
+{
+  "pilot1Name": "Joe Alfred Bloggs"
+  "pilot2Name": "Jim Simon Smith"
+}
+
 The "privacy" field exists for the Device as well as Pilot, the generation and display of the IGC files or tracking will use the most restrictive value.
 
 JSON structure of device records
@@ -75,5 +80,11 @@ Message from TrackerUI app to Tracker
   "gliderID": "",
   "compID": "",
   "compClass": ""
+}
+
+Message (answer) from collector to tracker
+{
+  "pilot1Name": "Joe Alfred Bloggs"
+  "pilot2Name": "Jim Simon Smith"
 }
 
