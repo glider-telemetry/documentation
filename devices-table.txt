@@ -6,15 +6,34 @@ For testing without trackers, will use the range:
 10-000000-000000-01  => 10-000000-000000-99
 
 The trackers are not manually registered, when a tracker sends its first "device" message, it is automatically registerd.
-Every time a tracker sends a "device" message (typically at power On) the Devices table gets updated.
-The devices table is never updated in any other way.
+Every time a tracker sends a "device" message (typically at power On) the Devices table gets updated for all fields except.
+
+  "gliderType"
+  "gliderID"
+  "compID"
+  "compClass"
+
+The response from the collector to the tracker for the "device" message are the values for:
+
+  "gliderType"
+  "gliderID"
+  "compID"
+  "compClass"
+  "Pilot1Name"
+  "Pilot2Name"
+
+So the tracker can record them and if necessary display them.
+The configuration of the values above is done via the TrackerUI app, excelpt for "Pilot1Name" and "Pilot1Name" which come from the Pilots table based on the "pilot1ID" and "pilot2ID" that are read from teh SD cards and sent to the collector by the tracker via the 'device' message.
+
+If the Devices table is changed by the TrackerUI app we will send a special formated answer on any fix or device message received and the tracker will update and send a new 'device' message.
+
+Privacy setting is at pilot level not tracker.
 
 JSON structure of device records
 {
-  "trackerID": "10-000000-000000-01",
-  "creationDate": 0,
+  "trackerID": "10-000000-000000-01",       //IMEI
+  "creationDate": 0,                        //First registration of a tracker
   "lastUpdate": 0,
-  "imei": "",
   "pilot1ID": "",
   "pilot2ID": "",
   "hwModel": "",
@@ -27,7 +46,6 @@ JSON structure of device records
   "protocolVersion": "",
   "gpsDatum": "",
   "devData": "",
-  "privacy": 0,
   "gliderType": "",
   "gliderID": "",
   "compID": "",
