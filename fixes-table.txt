@@ -18,22 +18,22 @@ JSON for the fixes table
       "lon": 152.1234          //in decimal degree
     },
     "navStat": "G3",                //NF,G2,G3 Other modes not supported, See UBLOX doco for codes
-    "satUsed": "9",                 //Satellites used, this is the GU parameter in UBX,00
-    "hAccuracy": 6.7,               // in m, Hacc value from UBX,00
+    "siu": "9",                     //Satellites in use used, this is the GU parameter in UBX,00
+    "fxa": 6.7,               // Fix Accuracy in m, Hacc value from UBX,00
     "press": 1013.25,               // in mbar
     "gAlt": 123.12,                 // gps altitude in m
     "pAlt": 123.22,                 // press altitude in m
-    "heading": 179,                 // in degree
+    "hdt": 179,                     // true heading in degree 0 north
     "gSpeed": 21.123,               // Ground speed in m/s converted from COG UBX,00
-    "aSpeed": 25.12,                // Air speed from vario
+    "ias: 25.12,                    // Air speed from vario in km/h
     "vVelocity": 1.45,              // Vertical Velocity in m/s from Vvel UBX,00
-    "climbRate": 1.31,              // in m/s from Vario
-    "teClimbRate": 1.23,            // in m/s from vario
+    "var": 1.31,                    // variometer in m/s from Vario
+    "vat": 1.23,                    // compensated variometer TE in m/s from vario
     "wind": {
-      "dir": 89.4,                  // in degree
-      "speed": 2.234                // in m/s
+      "wdi": 89,                  // in degree 0 north
+      "wsp": 2.2                  // in km/h
     },
-    "oat": 26.4,                   // Outside AIr Temperature in degree C
+    "oat": 26.4,                   // Outside AIr Temperature in degree C, use - in front for negative
     "enl": 0                        // 0-??
   },
   "comms": {
