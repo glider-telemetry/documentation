@@ -1,0 +1,50 @@
+The flights table is the index of the IGC files repositories.
+
+flightID is the name of the IGC file in S3
+
+The table has indexed fields used for common searches and non indexed fields that can be searched via table scans.
+
+There are some challenges about the privacy of the data where people could guess a filename or download an IGC file that is no anonymous, see privacy section for details how we can handle it.
+
+Anonymous levels
+0 => All info is present in the flights table
+1 => flightID is anonymised using random values after XGA
+     TrackerID is ommited
+     gliderID is set to Anon
+     gliderClass is ommited
+     pilot1ID is set to Anon
+     pilot2ID is set to Anon
+2 => There is no flight record kept nor IGC trace     
+
+When IGC files are first generated, all the indexed fileds we have data for are written. When the advanced IGC analysis is performed, the other fields are updated.
+
+
+INDEXED
+{
+  "flightId": "2011-11-27-XGA-VH_IBE_01",
+  "trackerID": "10-000000-000000-01",
+  "gliderID": "VH-IBE-01",
+  "gliderClass": "18m",
+  "takeoffDate": 1558271605,
+  "pilot1ID": "54d0483c-6e71-4b43-9e15-2f98e0d13dba",
+  "pilot2ID": "54d0483c-6e71-4b43-9e15-2f98e0d13dbb",
+  "takeoffLocation": "Lake Keepit",
+  "landingLocation": "Lake Keepit",
+  "launchType": "Aerotow"
+  "distance": 123,
+  "duration": 12345,
+}
+
+  NOT INDEXED
+{
+  "landingDate": "1558271605",
+  "speed": 35.7,
+  "averageClimb": 1.24,
+  "trackerType": "Bigbro v1.2",
+  "launchHeight" 356.7,
+  "percentCircling" 15.6,
+  "maximumHeight" 1456.6
+  .. more to add
+}
+  
+  
