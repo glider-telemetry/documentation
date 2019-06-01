@@ -24,9 +24,9 @@ JSON for the fixes table
     "gAlt": 123.12,                 // gps altitude in m
     "pAlt": 123.22,                 // press altitude in m
     "hdt": 179,                     // true heading in degree 0 north
-    "gSpeed": 21.123,               // Ground speed in m/s converted from COG UBX,00
+    "gsp": 21.123,               // Ground speed in km/h from COG UBX,00
     "ias: 25.12,                    // Air speed from vario in km/h
-    "vVelocity": 1.45,              // Vertical Velocity in m/s from Vvel UBX,00
+    "vVel": 1.45,              // Vertical Velocity in m/s from Vvel UBX,00
     "var": 1.31,                    // variometer in m/s from Vario
     "vat": 1.23,                    // compensated variometer TE in m/s from vario
     "wind": {
@@ -34,16 +34,18 @@ JSON for the fixes table
       "wsp": 2.2                  // in km/h
     },
     "oat": 26.4,                   // Outside AIr Temperature in degree C, use - in front for negative
-    "enl": 0                        // 0-??
+    "enl": 0,                        // 0-999
+    "mop": 0,                        // 
+    "acz": 1                        // verical G force
   },
   "comms": {
     "RSSI": "",
     "tower": ""
   },
   "device": {
-    "voltage": 4.34,
-    "temperature": 28.5,
-    "privacy": 0                    // 0 = public, 1 = anonymous, 2 = invisible
+    "volt": 4.34,
+    "temp": 28.5,
+    "priv": 0                    // 0 = public, 1 = anonymous, 2 = invisible
   },
   "devData": ""
 }
