@@ -6,6 +6,8 @@ It is assumed the UBX protocl from the GPS will be used so we can get high quali
 
 The messages from the trackers are JSON arrays of fixes in format [{..},{..}] a single message is wrapped with []
 
+Important: If a value is not avail, ofr example we send ENL and not MOP, do not send a value of zero or blank. Simply do not put the key in the JSON at all.
+
 JSON for the fixes table
 ========================
 {
@@ -34,8 +36,8 @@ JSON for the fixes table
       "wsp": 2.2                  // in km/h
     },
     "oat": 26.4,                   // Outside AIr Temperature in degree C, use - in front for negative
-    "enl": 0,                        // 0-999
-    "mop": 0,                        // 
+    "enl": 27,                        // 0-999
+    "mop": 9,                        // 
     "acz": 1                        // verical G force
   },
   "comms": {
